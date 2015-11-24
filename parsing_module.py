@@ -1,19 +1,17 @@
 """
 Name:       parsing_module.py
-Objective:  Let user select a date range to parse 4D number data. Return a list containing 4D numbers and its occurrences according to prize category
+Objective:  Parse 5D draw result. Return a list containing 5D numbers and respective occurrences for each                prize category.
 Params:     None
 Return:      A list containing 8 list elements.
                 Element 0: list of 4D number.
                 Element 1: list of occurrences for all prize category
-                Element 2: list of occurences for Top 3 prizes
-                Element 3: list of occurences for 1st prize
-                Element 4: list of occurences for 2nd prize
-                Element 5: list of occurences for 3rd prize
-                Element 6: list of occurences for Starter prize
-                Element 7: list of occurences for Consolation prize
+                Element 2: list of occurences for 1st prize
+                Element 3: list of occurences for 2nd prize
+                Element 4: list of occurences for 3rd prize
 Author:     Project Echo Telion [echo.telion@gmail.com]
 
 """
+# http://my.myfreepost.com/en/sportstoto/5d/frequency/
 
 from bs4 import BeautifulSoup
 import urllib2
@@ -63,12 +61,10 @@ def get_data():
     # lists to hold numbers and their respective occurrences according to prize categories
     num_list = []
     num_total = []
-    num_top3 = []
     num_1st = []
     num_2nd = []
     num_3rd = []
-    num_starter = []
-    num_conso = []
+
 
     soup = BeautifulSoup(urllib2.urlopen(set_data_range()), 'lxml')    
 
